@@ -35,7 +35,9 @@ public class DBConnectionTest {
 //	    		  
 //	      System.out.println(result ==1 );
 	      
-	         ArrayList<BankMemberDTO> ar =bankMemberDAO.getsearchbyID("Z");
+	         
+	         // 검색어로 찾기 
+	         ArrayList<BankMemberDTO> ar =bankMemberDAO.getsearchbyID("U");
 				System.out.println(ar.size()>0); 
 	        
 	         
