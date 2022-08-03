@@ -46,7 +46,7 @@ public class BankMemberDAO {
 	
 	
 	
-	public ArrayList<BankMemberDTO> getsearchbyID(BankMemberDTO bankMemberDTO)throws Exception {
+	public ArrayList<BankMemberDTO> getsearchbyID(String search)throws Exception {
 
 		ArrayList<BankMemberDTO> ar =new ArrayList();
 		Scanner sc = new Scanner(System.in);
@@ -65,12 +65,7 @@ public class BankMemberDAO {
 			 // 검색어는 매개변수 SEARCH로 받아온 것을 입력
 			ResultSet rs =st.executeQuery();
 			
-			System.out.println(" 검색어를 입력하시오. ");
-			
-			String rs1 = sc.next();
-			
-			
-			
+	
 			while(rs.next()){
 				BankMemberDTO bankMemberDTO1 = new BankMemberDTO(); 
 			 	
