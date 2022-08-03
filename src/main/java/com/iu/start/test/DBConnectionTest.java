@@ -35,8 +35,9 @@ public class DBConnectionTest {
 //	    		  
 //	      System.out.println(result ==1 );
 	      
-	         ArrayList<BankMemberDTO> ar = bankMemberDAO.getsearchbyID("u"); 
-	        ar.add(bankMemberDTO);
+	         ArrayList<BankMemberDTO> ar =bankMemberDAO.getsearchbyID("Z");
+				System.out.println(ar.size()>0); 
+	        
 	         
 	         
 	      } catch (Exception e) {
