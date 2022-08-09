@@ -27,13 +27,15 @@ public class BankMemberDAO {
 		
 		PreparedStatement st = con.prepareStatement(sql);
 		
+		int result = st.executeUpdate();
+		
 		st.setString(1, bankMemberDTO.getUserName());
 		st.setString(2, bankMemberDTO.getPasswoard());
 		st.setString(3, bankMemberDTO.getName());
 		st.setString(4, bankMemberDTO.getEmail());
 		st.setString(5, bankMemberDTO.getPhone());
 		
-		int result = st.executeUpdate();
+	
 		
 		// 자원해제 
 		

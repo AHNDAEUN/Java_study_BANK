@@ -2,6 +2,7 @@ package com.iu.start.test;
 
 import java.sql.Connection;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import com.iu.start.test.bank.BankMemberDAO;
 import com.iu.start.test.bank.BankMemberDTO;
@@ -15,12 +16,14 @@ public class DBConnectionTest {
 		
 		BankMemberDTO bankMemberDTO = new BankMemberDTO();
 		BankMemberDAO bankMemberDAO =new BankMemberDAO();
-		
+		Scanner sc = new Scanner(System.in);
+		ArrayList<BankMemberDTO> ar = new ArrayList();
 
-		 try {
-	         Connection con = DBConnector.getConnection();
-	      
-	         System.out.println(con != null);
+
+//		 try {
+//	         Connection con = DBConnector.getConnection();
+//	      
+//	         System.out.println(con != null);
 	         
 	         
 	         
@@ -33,23 +36,55 @@ public class DBConnectionTest {
 //	         
 //	      int result = bankMemberDAO.setjoin(bankMemberDTO);
 //	    		  
-//	      System.out.println(result ==1 );
+//	      System.out.println(result == 1 );
 	      
 	         
 	         // 검색어로 찾기 
-	         ArrayList<BankMemberDTO> ar =bankMemberDAO.getsearchbyID("U");
-				System.out.println(ar.size()>0); 
-	        
-	         
-	         
-	      } catch (Exception e) {
-	         // TODO Auto-generated catch block
-	         e.printStackTrace();
-	      }
-	      
+//	         ArrayList<BankMemberDTO> ar =bankMemberDAO.getsearchbyID("U");
+//				System.out.println(ar.size()>0); 
+//	        
+//	         
+//	         
+//	      } catch (Exception e) {
+//	         // TODO Auto-generated catch block
+//	         e.printStackTrace();
+//	      }
+//	      
+//		 try {
+//				int result = bankMembersDAO.setJoin(bankMembersDTO);
+//				if(result != 0) {
+//					System.out.println("회원 가입 성공");
+//				} 			
+//			} catch (Exception e) {
+//				// TODO Auto-generated catch block
+//				System.out.println("회원 가입 실패");
+//				e.printStackTrace();
+//			}
+		 try {
+				System.out.println("검색어를 입력하세요");
+				String search = sc.next();
+				
+				ar = bankMemberDAO.getsearchbyID(search);
+					for(BankMemberDTO b: ar) {
+					System.out.println("USERNAME: "+b.getUserName());
+					System.out.println("PASSWORD: "+b.getPasswoard());
+					System.out.println("NAME: "+b.getName());
+					System.out.println("EMAIL: "+b.getEmail());
+					System.out.println("PHONE: "+b.getPhone());
+						}
+					if(ar.size()==0) {
+						System.out.println("검색 실패");
+					}
+				
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		
 		
-		
-	}
+	
+		 
+	
+}
 
 }
