@@ -5,45 +5,41 @@ import java.sql.Date;
 public class BankMemberDTO {
 
 	
-	private String UserName;
-	private String Passwoard;
-	private String Name;
-	private String Email;
-	private String Phone;
-	
-	
-	public String getUserName() {
-		return UserName;
+	private String username;
+	private String Password;
+	private String name;
+	private String email;
+	private String phone;
+	public String getUsername() {
+		return username;
 	}
-	public void setUserName(String userName) {
-		UserName = userName;
+	public void setUsername(String username) {
+		this.username = username;
 	}
-	public String getPasswoard() {
-		return Passwoard;
+	public String getPassword() {
+		return Password;
 	}
-	public void setPasswoard(String passwoard) {
-		Passwoard = passwoard;
+	public void setPassword(String password) {
+		Password = password;
 	}
 	public String getName() {
-		return Name;
+		return name;
 	}
 	public void setName(String name) {
-		Name = name;
+		this.name = name;
 	}
 	public String getEmail() {
-		return Email;
+		return email;
 	}
 	public void setEmail(String email) {
-		Email = email;
+		this.email = email;
 	}
 	public String getPhone() {
-		return Phone;
+		return phone;
 	}
 	public void setPhone(String phone) {
-		Phone = phone;
+		this.phone = phone;
 	}
 	
 	
-	
-
 }

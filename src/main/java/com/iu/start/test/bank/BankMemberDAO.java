@@ -6,9 +6,41 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import org.springframework.ui.Model;
+
 import com.iu.start.utill.DBConnector;
 
-public class BankMemberDAO {
+public class BankMemberDAO implements MemberDAO {
+	
+	
+	public BankMemberDTO getLogin(BankMemberDTO bankMemberDTO) throws Exception{
+	
+		Connection con = DBConnector.getConnection();
+		
+		String sql ="SELECT USERNAME, NAME FROM BANKMEMBERS WHERE USERNAME=? AND PASSWORD=?";
+		
+		PreparedStatement st= con.prepareStatement(sql);
+
+		
+		st.setString(1,bankMemberDTO.getUsername());
+		st.setString(2, bankMemberDTO.getPassword());
+		
+		ResultSet rs = st.executeQuery();
+		
+		if (rs.next()) {
+			
+			
+			bankMemberDTO =new BankMemberDTO();
+			bankMemberDTO.setUsername(rs.getString("USERNAME"));
+			bankMemberDTO.setName(rs.getString("NAME"));
+		}else {
+			bankMemberDTO =null;
+			//return null;
+			
+		}
+		DBConnector.disConnect(rs, st, con);
+		return bankMemberDTO;
+	}
 	
 	public int setjoin (BankMemberDTO bankMemberDTO) throws Exception{
 	
@@ -27,17 +59,18 @@ public class BankMemberDAO {
 		
 		PreparedStatement st = con.prepareStatement(sql);
 		
-		int result = st.executeUpdate();
 		
-		st.setString(1, bankMemberDTO.getUserName());
-		st.setString(2, bankMemberDTO.getPasswoard());
+		st.setString(1, bankMemberDTO.getUsername());
+		st.setString(2, bankMemberDTO.getPassword());
 		st.setString(3, bankMemberDTO.getName());
 		st.setString(4, bankMemberDTO.getEmail());
 		st.setString(5, bankMemberDTO.getPhone());
 		
 	
 		
-		// 자원해제 
+		// 자원해제 		
+		int result = st.executeUpdate();
+
 		
 		
 		DBConnector.disConnect(st, con);
@@ -71,8 +104,8 @@ public class BankMemberDAO {
 			while(rs.next()){
 				BankMemberDTO bankMemberDTO1 = new BankMemberDTO(); 
 			 	
-		bankMemberDTO1.setName(rs.getString("USERNAME"));
-		bankMemberDTO1.setPasswoard(rs.getString("PASSWORD"));
+		bankMemberDTO1.setUsername(rs.getString("USERNAME"));
+		bankMemberDTO1.setPassword(rs.getString("PASSWORD"));
 		bankMemberDTO1.setName(rs.getString("NAME"));
 		bankMemberDTO1.setEmail(rs.getString("EMAIL"));
 		 bankMemberDTO1.setPhone(rs.getString("HPONE"));

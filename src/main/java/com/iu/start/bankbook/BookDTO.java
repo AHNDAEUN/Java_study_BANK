@@ -5,34 +5,35 @@ import java.util.Calendar;
 public class BookDTO {
 
 	
-	private long BookNum;
-	private String BookName;
-	private Double BookRate;
-	private Integer BookSale;
-	public long getBookNum() {
-		return BookNum;
+	private long booknum;
+	private String bookname;
+	private Double bookrate;
+	private Integer booksale;
+	public long getBooknum() {
+		return booknum;
 	}
-	public void setBookNum(long bookNum) {
-		BookNum = bookNum;
+	public void setBooknum(long booknum) {
+		this.booknum = booknum;
 	}
-	public String getBookName() {
-		return BookName;
+	public String getBookname() {
+		return bookname;
 	}
-	public void setBookName(String bookName) {
-		BookName = bookName;
+	public void setBookname(String bookname) {
+		this.bookname = bookname;
 	}
-	public Double getBookRate() {
-		return BookRate;
+	public Double getBookrate() {
+		return bookrate;
 	}
-	public void setBookRate(Double bookRate) {
-		BookRate = bookRate;
+	public void setBookrate(Double bookrate) {
+		this.bookrate = bookrate;
 	}
-	public Integer getBookSale() {
-		return BookSale;
+	public Integer getBooksale() {
+		return booksale;
 	}
-	public void setBookSale(Integer bookSale) {
-		BookSale = bookSale;
+	public void setBooksale(Integer booksale) {
+		this.booksale = booksale;
 	}
+	
 	
 	
 }

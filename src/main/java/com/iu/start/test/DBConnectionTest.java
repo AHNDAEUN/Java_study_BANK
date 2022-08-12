@@ -66,8 +66,8 @@ public class DBConnectionTest {
 				
 				ar = bankMemberDAO.getsearchbyID(search);
 					for(BankMemberDTO b: ar) {
-					System.out.println("USERNAME: "+b.getUserName());
-					System.out.println("PASSWORD: "+b.getPasswoard());
+					System.out.println("USERNAME: "+b.getUsername());
+					System.out.println("PASSWORD: "+b.getPassword());
 					System.out.println("NAME: "+b.getName());
 					System.out.println("EMAIL: "+b.getEmail());
 					System.out.println("PHONE: "+b.getPhone());
