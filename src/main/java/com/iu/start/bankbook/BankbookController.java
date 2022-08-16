@@ -17,6 +17,9 @@ import com.iu.start.test.bank.BankMemberDTO;
 @RequestMapping(value ="/bankbook/*")
 public class BankbookController {
 	
+	private  BankbookService BankbookService;
+	
+	
 		
 		
 		// /BANKBOOK/ LIST ,GET /LIST
@@ -27,8 +30,8 @@ public class BankbookController {
 					
 			System.out.println(" list 실행 ");
 			
-			BookDAO bookDAO = new BookDAO();
-			ArrayList<BookDTO> ar = bookDAO.getlist();
+			//BookDAO bookDAO = new BookDAO();
+			ArrayList<BookDTO> ar = BankbookService.getlist();
 		
 			model.addAttribute("list",ar);
 //			setAttribute("list", ar);
@@ -45,10 +48,10 @@ public class BankbookController {
 		//System.out.println("booknum:" +BookNum);
 		//-------  console 메서드 실행 확인 
 
-		BookDAO bookDAO =new BookDAO();
-		System.out.println(bookDTO.getBookName());
+		//BookDAO bookDAO =new BookDAO();
+		System.out.println(bookDTO.getBookname());
 		
-		bookDTO= bookDAO.getDetail(bookDTO);
+		bookDTO= BankbookService.getDetail(bookDTO);
 		System.out.println(bookDTO);
 		//return "bankbook/detail"; jsp주소
 		mv.setViewName("bankbook/detail");
@@ -77,7 +80,7 @@ public class BankbookController {
 		System.out.println(bookDTO.getBookRate());
 
 		
-		BookDAO bookDAO = new BookDAO();
+//		BookDAO bookDAO = new BookDAO();
 
 //	
 //	Calendar ca = Calendar.getInstance();
@@ -85,7 +88,7 @@ public class BankbookController {
 //	
 //	bookDTO.setBookNum(num);
 //	bookDTO.setBookSale(1);
-		int result = bookDAO.setBankBook(bookDTO);
+		int result = BankbookService.setBankBook(bookDTO);
 		if(result == 1) {
 			
 			System.out.println( "계좌 추가 실행");
@@ -110,11 +113,11 @@ public class BankbookController {
 			// view 경로명을 주는 밥법 void = url주소 , 리턴으로 뷰의 경로를 스트링타입으로 담음, 모델앤뷰로 보내주기 
 			
 			// controller 조회
-			BookDAO bookDAO =new BookDAO();
+//			BookDAO bookDAO =new BookDAO();
 			
 			//파마미터 출력
-			 bookDTO= bookDAO.getDetail(bookDTO);
-			 System.out.println(bookDTO.getBookName());
+			 bookDTO= BankbookService.getDetail(bookDTO);
+			 System.out.println(bookDTO.getBookname());
 			 model.addAttribute("dto", bookDTO);
 			
 			
@@ -137,10 +140,10 @@ public class BankbookController {
 		
 			System.out.println("update1 실행");
 			
-			BookDAO bookDAO = new BookDAO();
+	//		BookDAO bookDAO = new BookDAO();
 			ModelAndView mv =new ModelAndView(); //view 경로를 가지고 있음
 			mv.setViewName("redirect:./update");
-			int result = bookDAO.setUpdate(bookDTO);
+			int result = BankbookService.setUpdate(bookDTO);
 			System.out.println( result== 1);
 			
 			if(result>0) {
@@ -176,9 +179,9 @@ public class BankbookController {
 		@RequestMapping (value="delete.aa", method=RequestMethod.GET)
 		public ModelAndView delete(BookDTO bookDTO) throws Exception {
 			System.out.println("delete");
-			BookDAO bookDAO = new BookDAO();
+//			BookDAO bookDAO = new BookDAO();
 			ModelAndView mv = new ModelAndView(); 
-			int result = bookDAO.setDelete(bookDTO);
+			int result = BankbookService.setDelete(bookDTO);
 			System.out.println(result);
 			if(result>0) {
 				System.out.println("성공");
