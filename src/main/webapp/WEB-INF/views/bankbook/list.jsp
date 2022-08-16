@@ -4,6 +4,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
+     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    
      <%-- 스크립틀릿 형태 <% Java 코드 작성 시 사용% >
     	표현식 HTML <%=자바변수 또는 값% > --%>
     
@@ -18,7 +20,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>bankbook list</title>
 </head>
 <body>
 
@@ -35,55 +37,67 @@
 		
 		<tr>
 		
-				<th>BOOKNUM</th> 
+			
 			   <th>BOOKNAME</th> 
 			   <th>BOOKRATE</th> 
-			   <th>BOOKSALE</th>
+			 
 		
 		</tr>
 		
 		</thead>
 		
 		<tbody>
-		<tr>
+	<!-- 	<tr>
 				<td> name1 </td> 
 				<td> 0.012 </td> 
 			</tr>
 			
 			<tr>
-			<!--하나가 dto의 하나에 대한 내용 -->
+			하나가 dto의 하나에 대한 내용
 			
 			<tr>	
 				<td> name2 </td> 
 				<td> 0.133 </td>
 				
-				</tr>
+				</tr> -->
 							
+			
 				
-				
-				 <% for (BookDTO bookDTO : ar ) {%>
-			 <!-- 	html에 자바의 코드를 입력하는 방식 =  표현식 -->
+				<c:forEach items="${list}" var="dto">
+				<%--   Scope식 사용시 jsp 주소 설정식 넣기  --%>
 				<tr>
+					<td> <a href="./detail.aa?bookNum=${dto.bookNum}">
+					${dto.bookName}</a> </td>
+					
+					<td> ${dto.bookRate} </td>
+				</tr>
+			</c:forEach>	
+				
+				
+				<%--  <% for (BookDTO bookDTO : ar ) {%>
+			 <!-- 	html에 자바의 코드를 입력하는 방식 =  표현식 -->
+				
 				<td>
-						<a href= "./detail.aa?BookNum=<%= bookDTO.getBooknum() %>">
-								 <%= bookDTO.getBookname() %> </a> 
+						<a href= "./detail.aa?BookNum=<%= bookDTO.getBookNum() %>">
+								 <%= bookDTO.getBookName() %> </a> 
 								 
 		 </td>
 						 <!--표현식에 ; 생략 / 앞뒤 공백생기지 않게 주의 공백도 글자로 인식-- > 
 					
 						 
-				<td> <%= bookDTO.getBookrate() %></td>
+				<td> <%= bookDTO.getBookRate() %></td>
 				</tr>
 				
 				<%}%>
-				 
+				  --%>
 		</tbody>
-		  <!--arrylist에 있는 내용을 꺼내와서 출력하려고함
+		 <!--  arrylist에 있는 내용을 꺼내와서 출력하려고함
 			  	   제목눌러서 경로 이동
-				   클라이언트가 서버를 요청하는 경우 url ,a- 입력하는 것 업이 클릭하기때문에 a 사용 , form 테크 매서드 형식에 따라 get, post으로 사용,
-				   요청받는 언어 get = url에 직접 입력하는 것 a 태크 post -->
+				   클라이언트가 서버를 요청하는 경우 url ,a- 입력하는 것 없이 클릭하기때문에 a 사용 , form 테크 매서드 형식에 따라 get, post으로 사용,
+				   요청받는 언어 get = url에 직접 입력하는 것 a 태크 post  -->
 
 </table>
+<br>
 <a href = "add.aa"> 상품등록 </a>
 
 </body>

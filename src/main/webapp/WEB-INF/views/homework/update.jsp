@@ -4,14 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title> update page </title>
 </head>
 <body>
-
-
-<H1> delete page </H1>
-
-		삭제 
 
 </body>
 </html>

@@ -16,7 +16,7 @@
              <a href= "/"><input type="button" value="메인 페이지로 돌아가기"></a>
                 <h2>ID 로그인</h2>
                 <div>
-                    <input type="text" value="user2" name="username" >
+                    <input type="text" value="user2" name="userName" >
                 </div>
                 <div>
                     <input type="password" value="pw2" name="password">

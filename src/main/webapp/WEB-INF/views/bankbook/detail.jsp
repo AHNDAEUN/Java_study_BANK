@@ -56,7 +56,7 @@
 <td>${dto.bookRate}</td>
 <%-- <td> <% if (bookDTO.getBookSale()==1) { --%>
 
-<td>${dto.booksale}</td>
+<td>${dto.bookSale}</td>
  
 <%--    판매중
 <%} else {%>
@@ -83,11 +83,11 @@
 <a href = "/member/join.aa" >join</a> 
 
 <a href = "./list.aa" >리스트 보기</a> 
-<a href ="./update.aa?booknum=${dto.bookNum}"> 수정 </a>
-<a href ="./delete.aa?booknum=${dto.bookNum}"> 삭제 </a>
+<a href ="./update.aa?bookNum=${dto.bookNum}"> 수정 </a>
+<a href ="./delete.aa?bookNum=${dto.bookNum}"> 삭제 </a>
 <c:if test="${not empty sessionScope.member}">
 
-<a href ="../account/add.aa?booknum=2"> 상품 가입하기 </a> 
+<a href ="../account/add.aa?bookNum=${dto.bookNum}"> 상품 가입하기 </a> 
 
 <!--  로그인한 사람만보기 -->
 <!-- 현재 위치는 /bankbook/detail  -->

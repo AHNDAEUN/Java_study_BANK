@@ -11,12 +11,12 @@
 <h1> Join page </h1>
 	<div  class = "container">
 	<h3> 회원가입 </h3>
-		<form action = "join.aa" method ="post" >
+		<form action = "join.aa" method ="POST" >
 		<div>
-		    아이디 입력 <input type="text" name = "username"> 
+		    아이디 입력 <input type="text" name = "userName"> 
 		    <input type="button" value="중복확인"> 
 		    <br><br>
-		    비밀번호 입력 <input type="password" name ="Passwoard">  
+		    비밀번호 입력 <input type="password" name ="password">  
 		    <input type="reset">
 		    <br>
 		    비밀번호 확인 <input type="password">

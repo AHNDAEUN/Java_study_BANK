@@ -17,7 +17,7 @@ public class AccountDAO {
 		
 		//SQL문 작성
 		String sql = "INSERT INTO BANKACCOUNT"
-				+ "VALUES (ACCOUNT_SQL_NEXTVAL, ? ,?, sysdate)"; 
+				+ "VALUES (ACCOUNT_SQL_NEXTVAL, ? , ?, SYSDATE)"; 
 		// 사용자가 보내는 데이터를 받아함 가입하려고하는 통장의 번호는  -parameter  
 		//로그인한 유저아이디는 session에서 꺼내씀
 		//미리보내기

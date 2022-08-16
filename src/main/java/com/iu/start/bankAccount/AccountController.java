@@ -17,7 +17,7 @@ public class AccountController {
 	private AccountDAO accountDAO;
 	
 	
-	// 생성자 (default)
+	// 생성자 (defualt)
 	public AccountController() {
 		this.accountDAO =new AccountDAO();
 	}
@@ -40,7 +40,7 @@ public class AccountController {
 		BankMemberDTO bankMemberDTO =  (BankMemberDTO) session.getAttribute("member");
 		//오류가 뜨는 이유는 모든 오브젝트는 
 		//로그인한 정보를 꺼내기위해 member에서 가져옴
-		accountDTO.setUserName(bankMemberDTO.getUsername());
+		accountDTO.setUserName(bankMemberDTO.getUserName());
 		int result = this.accountDAO.add(accountDTO);
 		
 		return "redirect../bankbook/list.aa";

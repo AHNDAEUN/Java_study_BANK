@@ -15,12 +15,12 @@ public class BookTest {
 		
 		try {
 			Calendar cal = Calendar.getInstance();
-			bookDTO.setBooknum((long)(cal.getTimeInMillis()));
+			bookDTO.setBookNum((long)(cal.getTimeInMillis()));
 			System.out.println("계좌명을 입력하세요");
-			bookDTO.setBookname(sc.next());
+			bookDTO.setBookName(sc.next());
 			System.out.println("이자율을 입력하세요");
-			bookDTO.setBookrate(sc.nextDouble());
-			bookDTO.setBooksale(1);
+			bookDTO.setBookRate(sc.nextDouble());
+			bookDTO.setBookSale(1);
 			int result = bookDAO.setBankBook(bookDTO);
 			if(result>0) {
 				System.out.println("계좌를 개설하였습니다");

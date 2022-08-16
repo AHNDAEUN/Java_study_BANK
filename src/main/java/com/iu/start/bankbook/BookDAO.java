@@ -29,9 +29,9 @@ public class BookDAO implements BookDAO_1 {
 		
 		
 	
-		st.setString(1, bookDTO.getBookname());
-		st.setDouble(2, bookDTO.getBookrate());
-		st.setLong(3, bookDTO.getBooknum());
+		st.setString(1, bookDTO.getBookName());
+		st.setDouble(2, bookDTO.getBookRate());
+		st.setLong(3, bookDTO.getBookNum());
 		
 		
 		int result = st.executeUpdate();
@@ -53,8 +53,8 @@ public class BookDAO implements BookDAO_1 {
 		
 		
 		 st.setLong(1,cal.getTimeInMillis()); 
-		st.setString (2, bookDTO.getBookname());
-		st.setDouble (3, bookDTO.getBookrate());
+		st.setString (2, bookDTO.getBookName());
+		st.setDouble (3, bookDTO.getBookRate());
 		st.setInt (4, 1);
 		
 		int result =st.executeUpdate();
@@ -86,10 +86,10 @@ public class BookDAO implements BookDAO_1 {
 		
 		while (rs.next()) {
 			BookDTO bookDTO =new BookDTO();
-			bookDTO.setBooknum(rs.getLong("BOOKNUM"));
-			bookDTO.setBookname(rs.getString("BOOKNAME"));
-			bookDTO.setBookrate(rs.getDouble("BOOKRATE"));
-			bookDTO.setBooksale(rs.getInt("BOOKSALE"));
+			bookDTO.setBookNum(rs.getLong("BOOKNUM"));
+			bookDTO.setBookName(rs.getString("BOOKNAME"));
+			bookDTO.setBookRate(rs.getDouble("BOOKRATE"));
+			bookDTO.setBookSale(rs.getInt("BOOKSALE"));
 			
 			ar.add(bookDTO);
 			
@@ -119,7 +119,7 @@ public class BookDAO implements BookDAO_1 {
 			
 			PreparedStatement st =con.prepareStatement(sql);
 			
-			st.setLong(1, bookDTO.getBooknum());
+			st.setLong(1, bookDTO.getBookNum());
 			
 			ResultSet rs=st.executeQuery();
 		       
@@ -127,10 +127,10 @@ public class BookDAO implements BookDAO_1 {
 				
 				 
 				 bookDTO2 =new BookDTO();
-				 bookDTO2.setBooknum(rs.getLong("BOOKNUM"));
-				 bookDTO2.setBookname(rs.getString("BOOKNAME"));
-				 bookDTO2.setBookrate(rs.getDouble("BOOKRATE"));
-				 bookDTO2.setBooksale(rs.getInt("BOOKSALE"));
+				 bookDTO2.setBookNum(rs.getLong("BOOKNUM"));
+				 bookDTO2.setBookName(rs.getString("BOOKNAME"));
+				 bookDTO2.setBookRate(rs.getDouble("BOOKRATE"));
+				 bookDTO2.setBookSale(rs.getInt("BOOKSALE"));
 			
 				
 			}else {
@@ -154,7 +154,7 @@ public class BookDAO implements BookDAO_1 {
 		int result = 0;
 		Scanner sc = new Scanner(System.in);
 		System.out.println("일련번호 입력");
-		if(bookDTO.getBooksale()==1) {
+		if(bookDTO.getBookSale()==1) {
 		st.setInt(1, 0);
 		st.setLong(2, sc.nextLong());
 		result = st.executeUpdate();
@@ -179,7 +179,7 @@ public class BookDAO implements BookDAO_1 {
 	
 	PreparedStatement st = con.prepareStatement(sql);
 	
-	st.setLong(1, bookDTO.getBooknum());
+	st.setLong(1, bookDTO.getBookNum());
 	
 	
 	int result = st.executeUpdate();

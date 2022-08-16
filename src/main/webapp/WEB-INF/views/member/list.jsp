@@ -12,7 +12,7 @@ ArrayList<BankMemberDTO> ar = (ArrayList<BankMemberDTO>)request.getAttribute("li
 
 
 
-<!DOCTYPE html>
+<!DOCTYPE html>//
 <html>
 <head>
 <meta charset="UTF-8">
@@ -28,10 +28,11 @@ ArrayList<BankMemberDTO> ar = (ArrayList<BankMemberDTO>)request.getAttribute("li
 	<thead>
 
 			<tr> 
-					<th>UserNname</th>
-					<th>Name</th>
-					<th>Email</th>				
-					<th>Phone</th>
+					<th>UserName</th>
+					<th>password</th>
+					<th>name</th>
+					<th>email</th>				
+					<th>phone</th>
 					
 					
 				</tr>
@@ -48,11 +49,12 @@ ArrayList<BankMemberDTO> ar = (ArrayList<BankMemberDTO>)request.getAttribute("li
 				
 				<c:forEach items ="${requestScope.list}" var = "dto"> 
 				
-				<h3> ${pageScope.dto} </h3>
+				<%-- <h3> ${pageScope.dto} </h3> --%>
+				<!-- 주소록 노출 -->
 				
 				<tr>
 					
-					<td> ${pageScope.dto.username}</td>
+					<td> ${pageScope.dto.userName}</td>
 					<td> ${pageScope.dto.password}</td>
 					<td> ${pageScope.dto.name}</td>
 					<td> ${pageScope.dto.email}</td>

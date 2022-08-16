@@ -46,7 +46,7 @@ public class BankbookController {
 		//-------  console 메서드 실행 확인 
 
 		BookDAO bookDAO =new BookDAO();
-		System.out.println(bookDTO.getBookname());
+		System.out.println(bookDTO.getBookName());
 		
 		bookDTO= bookDAO.getDetail(bookDTO);
 		System.out.println(bookDTO);
@@ -73,8 +73,8 @@ public class BankbookController {
 		public ModelAndView DBinsert(BookDTO bookDTO) throws Exception {
 			
 		System.out.println("add 실행");
-		System.out.println(bookDTO.getBookname());
-		System.out.println(bookDTO.getBookrate());
+		System.out.println(bookDTO.getBookName());
+		System.out.println(bookDTO.getBookRate());
 
 		
 		BookDAO bookDAO = new BookDAO();
@@ -114,7 +114,7 @@ public class BankbookController {
 			
 			//파마미터 출력
 			 bookDTO= bookDAO.getDetail(bookDTO);
-			 System.out.println(bookDTO.getBookname());
+			 System.out.println(bookDTO.getBookName());
 			 model.addAttribute("dto", bookDTO);
 			
 			
@@ -145,7 +145,7 @@ public class BankbookController {
 			
 			if(result>0) {
 				System.out.println("성공");
-				mv.setViewName("redirect:./detail.aa?booknum="+bookDTO.getBooknum());
+				mv.setViewName("redirect:./detail.aa?booknum="+bookDTO.getBookNum());
 			}
 			return mv;
 			

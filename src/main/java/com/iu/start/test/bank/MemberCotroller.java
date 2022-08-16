@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +20,19 @@ import com.iu.start.bankbook.BookDTO;
 public class MemberCotroller {
 	
 	
+		@Autowired
+		private BankMemberService bankMemberService;
+		
+		
+//		private BankMemberDAO bankMemberDAO;
+		
+//		private MemberDAO bankMemberDAO;
+		
+//	 	@Autowired
+//		public MemberCotroller (BankMemberDAO bankMemberDAO) {
+//			
+//			this.bankMemberDAO = bankMemberDAO();
+//		}
 	
 	
 	
@@ -49,11 +64,11 @@ public class MemberCotroller {
 	public String login(HttpSession session,BankMemberDTO bankMemberDTO, Model model ) throws Exception {
 		
 		System.out.println( "db에 로그인 성공" );	// login요청이 발생했을때 메서드에 실행 
-			BankMemberDAO bankMemberDAO =new BankMemberDAO();
-			bankMemberDTO = bankMemberDAO.getLogin(bankMemberDTO);// 아이디 페스워드 입력하고 db 조회
+//			BankMemberDAO bankMemberDAO =new BankMemberDAO();
+			bankMemberDTO = bankMemberService.getLogin(bankMemberDTO);// 아이디 페스워드 입력하고 db 조회
 			System.out.println(bankMemberDTO);
 		// redirect: 다시 접속할 url 주소 (절대경로, 상대경로)"
-			model.addAttribute("member", bankMemberDTO);
+		//	model.addAttribute("member", bankMemberDTO);
 			  //HttpSession session= request.getSession();
         session.setAttribute("member", bankMemberDTO);
 		return "redirect:../"; 
@@ -84,7 +99,7 @@ public class MemberCotroller {
 							//dto로 받는 변수이 set으로 받아져서 생략됨 
 //		System.out.println(("name"));
 		System.out.println("조인 POST 실행 ");
-		BankMemberDAO bankMemberDAO =new BankMemberDAO();
+//		BankMemberDAO bankMemberDAO =new BankMemberDAO();
 //		BankMemberDTO bankMemberDTO =new BankMemberDTO();
 //		//String username=request.getParameter("username"); 
 //		// => 대신 public String join(HttpServletRequest request)안에  파라미터와 동일한 이름으로 꺼내서 받아 줄 수 있음
@@ -97,7 +112,7 @@ public class MemberCotroller {
 //	bankMemberDTO.setPhone(("phone"));
 		
 		
-	int result = bankMemberDAO.setjoin(bankMemberDTO);
+	int result = bankMemberService.setjoin(bankMemberDTO);
 	if(result==1) {
 		System.out.println("성공");
 		} else {
@@ -132,9 +147,9 @@ public class MemberCotroller {
 	
 	@RequestMapping(value ="search.aa", method = RequestMethod.POST)
 	public ModelAndView getSearchByID(String search, Model model ) throws Exception {
-
-	BankMemberDAO bankMemberDAO =new BankMemberDAO();
-	ArrayList<BankMemberDTO> ar =bankMemberDAO.getsearchbyID(search);
+		System.out.println("cc");
+//	BankMemberDAO bankMemberDAO =new BankMemberDAO();
+	ArrayList<BankMemberDTO> ar =bankMemberService.getsearchbyID(search);
 	model.addAttribute("list", ar);
 	ModelAndView mv = new  ModelAndView();
 	mv.setViewName("/member/list");

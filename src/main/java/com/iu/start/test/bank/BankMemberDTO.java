@@ -5,22 +5,22 @@ import java.sql.Date;
 public class BankMemberDTO {
 
 	
-	private String username;
-	private String Password;
+	private String userName;
+	private String password;
 	private String name;
 	private String email;
 	private String phone;
-	public String getUsername() {
-		return username;
+	public String getUserName() {
+		return userName;
 	}
-	public void setUsername(String username) {
-		this.username = username;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 	public String getPassword() {
-		return Password;
+		return password;
 	}
 	public void setPassword(String password) {
-		Password = password;
+		this.password = password;
 	}
 	public String getName() {
 		return name;
@@ -40,6 +40,7 @@ public class BankMemberDTO {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
+	
 	
 	
 }

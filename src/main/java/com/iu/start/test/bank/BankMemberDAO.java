@@ -6,10 +6,14 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 
 import com.iu.start.utill.DBConnector;
 
+
+@Repository
+		
 public class BankMemberDAO implements MemberDAO {
 	
 	
@@ -22,7 +26,7 @@ public class BankMemberDAO implements MemberDAO {
 		PreparedStatement st= con.prepareStatement(sql);
 
 		
-		st.setString(1,bankMemberDTO.getUsername());
+		st.setString(1,bankMemberDTO.getUserName());
 		st.setString(2, bankMemberDTO.getPassword());
 		
 		ResultSet rs = st.executeQuery();
@@ -31,7 +35,7 @@ public class BankMemberDAO implements MemberDAO {
 			
 			
 			bankMemberDTO =new BankMemberDTO();
-			bankMemberDTO.setUsername(rs.getString("USERNAME"));
+			bankMemberDTO.setUserName(rs.getString("USERNAME"));
 			bankMemberDTO.setName(rs.getString("NAME"));
 		}else {
 			bankMemberDTO =null;
@@ -60,7 +64,7 @@ public class BankMemberDAO implements MemberDAO {
 		PreparedStatement st = con.prepareStatement(sql);
 		
 		
-		st.setString(1, bankMemberDTO.getUsername());
+		st.setString(1, bankMemberDTO.getUserName());
 		st.setString(2, bankMemberDTO.getPassword());
 		st.setString(3, bankMemberDTO.getName());
 		st.setString(4, bankMemberDTO.getEmail());
@@ -96,7 +100,7 @@ public class BankMemberDAO implements MemberDAO {
 		
 		PreparedStatement st = con.prepareStatement(sql);
 		
-			st.setString(1, "%+ search +%");
+			st.setString(1, "%"+ search +"%");
 			 // 검색어는 매개변수 SEARCH로 받아온 것을 입력
 			ResultSet rs =st.executeQuery();
 			
@@ -104,11 +108,11 @@ public class BankMemberDAO implements MemberDAO {
 			while(rs.next()){
 				BankMemberDTO bankMemberDTO1 = new BankMemberDTO(); 
 			 	
-		bankMemberDTO1.setUsername(rs.getString("USERNAME"));
+		bankMemberDTO1.setUserName(rs.getString("USERNAME"));
 		bankMemberDTO1.setPassword(rs.getString("PASSWORD"));
 		bankMemberDTO1.setName(rs.getString("NAME"));
 		bankMemberDTO1.setEmail(rs.getString("EMAIL"));
-		 bankMemberDTO1.setPhone(rs.getString("HPONE"));
+		 bankMemberDTO1.setPhone(rs.getString("PHONE"));
 			ar.add(bankMemberDTO1);
 			}
 	
