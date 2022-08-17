@@ -8,7 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.iu.start.test.bank.BankMemberDTO;
+import com.iu.start.bankmember.BankMemberDTO;
 @Controller
 @RequestMapping(value = "/account/*")
 

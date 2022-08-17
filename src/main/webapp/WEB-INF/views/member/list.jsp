@@ -1,6 +1,6 @@
-<%@page import="com.iu.start.test.bank.BankMemberDAO"%>
+<%@page import="com.iu.start.bankmember.BankMemberDAO"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="com.iu.start.test.bank.BankMemberDTO"%>
+<%@page import="com.iu.start.bankmember.BankMemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     

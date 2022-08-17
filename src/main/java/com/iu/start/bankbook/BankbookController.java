@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.iu.start.test.bank.BankMemberDTO;
+import com.iu.start.bankmember.BankMemberDTO;
 
 @Controller
 @RequestMapping(value ="/bankbook/*")

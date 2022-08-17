@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 import org.springframework.ui.Model;
 
-import com.iu.start.test.bank.BankMemberDTO;
+import com.iu.start.bankmember.BankMemberDTO;
 import com.iu.start.utill.DBConnector;
 
 public class BookDAO implements BookDAO_1 {
@@ -22,23 +22,23 @@ public class BookDAO implements BookDAO_1 {
 	
 	@Override
 	public int setUpdate(BookDTO bookDTO) throws Exception {
-		Connection con = DBConnector.getConnection();
-		
-		String sql = "UPDATE BANKBOOK SET BOOKNAME = ?, BOOKRATE=? WHERE BOOKNUM= ? ";
-		PreparedStatement st = con.prepareStatement(sql);
-		
-		
-	
-		st.setString(1, bookDTO.getBookname());
-		st.setDouble(2, bookDTO.getBookrate());
-		st.setLong(3, bookDTO.getBooknum());
-		
-		
-		int result = st.executeUpdate();
-		
-		
-		DBConnector.disConnect(st, con);
-		return result;
+//		Connection con = DBConnector.getConnection();
+//		
+//		String sql = "UPDATE BANKBOOK SET BOOKNAME = ?, BOOKRATE=? WHERE BOOKNUM= ? ";
+//		PreparedStatement st = con.prepareStatement(sql);
+//		
+//		
+//	
+//		st.setString(1, bookDTO.getBookname());
+//		st.setDouble(2, bookDTO.getBookrate());
+//		st.setLong(3, bookDTO.getBooknum());
+//		
+//		
+//		int result = st.executeUpdate();
+//		
+//		
+//		DBConnector.disConnect(st, con);
+		//return result;
 		
 
 	}

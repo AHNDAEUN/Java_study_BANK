@@ -1,4 +1,4 @@
-<%@page import="com.iu.start.test.bank.BankMemberDTO"%>
+<%@page import="com.iu.start.bankmember.BankMemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     

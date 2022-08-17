@@ -1,6 +1,6 @@
-package com.iu.start.test.bank;
+package com.iu.start.bankmember;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public interface MemberDAO {
 	
@@ -12,7 +12,7 @@ public interface MemberDAO {
 	// 검색어를 입력해서 ID를 찾기  (검색어로 찾는 id는 키워드와 일치하면 여러명이 나올 수 있음)
 	//찾으면 ABC 순으로 정렬 
 	
-	public ArrayList<BankMemberDTO> getsearchbyID (String search) throws Exception;
+	public List<BankMemberDTO> getsearchbyID (String search) throws Exception;
 	
 	
 	

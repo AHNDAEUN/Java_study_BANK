@@ -1,4 +1,4 @@
-package com.iu.start.test.bank;
+package com.iu.start.bankmember;
 
 import java.sql.Date;
 
